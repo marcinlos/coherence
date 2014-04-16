@@ -16,6 +16,9 @@ public class PersonEventTester {
         // update
         stalin.setGender("F");
         cache.put(stalin.getSurname(), stalin);
+        
+        stalin.setFirstname("Józefa");
+        cache.put(stalin.getSurname(), stalin);
     }
 
 }
