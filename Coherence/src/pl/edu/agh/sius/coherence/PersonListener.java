@@ -22,7 +22,8 @@ public class PersonListener {
         
         String className = Person.class.getName();
         Filter isPerson = new EqualsFilter(getClassName, className);
-        Filter onlyPeople = new MapEventFilter(MapEvent.ENTRY_INSERTED, isPerson);
+        Filter onlyPeople = new MapEventFilter(MapEvent.ENTRY_INSERTED | 
+                MapEvent.ENTRY_UPDATED, isPerson);
         
         cache.addMapListener(new MapListener() {
             
