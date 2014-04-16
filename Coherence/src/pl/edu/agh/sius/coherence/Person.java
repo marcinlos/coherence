@@ -93,11 +93,25 @@ public class Person implements Serializable, Comparable<Person> {
                 "   gender    ->  %s\n}",
                 id, firstname, surname, address, age, gender);
     }
+    
+    private static int multiCmp(int... vals) {
+        for (int v : vals) {
+            if (v != 0) {
+                return v;
+            }
+        }
+        return 0;
+    }
 
     @Override
     public int compareTo(Person o) {
-        return surname.compareTo(o.surname) * 2
-                + firstname.compareTo(o.firstname);
+        return multiCmp(
+                surname.compareTo(o.surname), 
+                firstname.compareTo(o.firstname),
+                address.compareTo(o.address),
+                Integer.compare(age, o.age),
+                gender.compareTo(o.gender),
+                Integer.compare(id, o.id));
     }
 
 }
