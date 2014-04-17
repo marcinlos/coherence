@@ -55,6 +55,8 @@ public class PersonListener {
 
     public static final class FemaleNameChanged extends MapEventFilter {
         
+        private static final long serialVersionUID = 7497586996175773764L;
+
         public FemaleNameChanged() {
             super(MapEvent.ENTRY_UPDATED);
         }
